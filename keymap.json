@@ -11,13 +11,16 @@
       // VS Code-style sidebar and terminal shortcuts.
       "ctrl-e": "workspace::ToggleLeftDock",
       "cmd-shift-i": "agent::Toggle",
+      "cmd-shift-x": ["action::Sequence", ["workspace::ZoomOut", "workspace::ActivatePaneUp"]],
       "cmd-shift-e": "project_panel::Toggle",
       "cmd-j": "workspace::ActivatePaneDown",
       "cmd-k": "workspace::ActivatePaneUp",
       "cmd-l": "workspace::ActivatePaneRight",
       "ctrl-cmd-h": "workspace::ActivatePaneLeft",
       "ctrl-:": "terminal_panel::Toggle",
-      "cmd-:": "workspace::NewTerminal",
+      "cmd-:": "terminal_panel::Toggle",
+      "cmd-shift-;": "terminal_panel::Toggle",
+      "cmd-shift-t": "terminal_panel::Toggle",
       "ctrl-shift-k": "terminal_panel::Toggle",
       "cmd-shift-k": "terminal_panel::Toggle",
       "ctrl-shift-h": "git_panel::Toggle",
@@ -25,13 +28,17 @@
       "ctrl-shift-g": "git_panel::Toggle",
       "cmd-shift-g": [
         "task::Spawn",
-        { "task_name": "lazygit", "reveal_target": "dock" },
+        { "task_name": "lazygit", "reveal_target": "dock" }
       ],
       "ctrl-shift-m": "workspace::ToggleZoom",
       "cmd-shift-m": "workspace::ToggleZoom",
-      "cmd-shift-o": ["task::Spawn", { "task_name": "OpenCode", "reveal_target": "dock" }],
-      "cmd-shift-ø": "workspace::NewTerminal",
-    },
+      "cmd-shift-o": [
+        "task::Spawn",
+        { "task_name": "OpenCode", "reveal_target": "dock" }
+      ],
+      "ctrl-shift-t": "workspace::NewTerminal",
+      "cmd-shift-ø": "workspace::NewTerminal"
+    }
   },
   {
     "context": "Editor",
@@ -44,7 +51,10 @@
       "cmd-l": "workspace::ActivatePaneRight",
       "ctrl-cmd-h": "workspace::ActivatePaneLeft",
       "ctrl-:": "terminal_panel::Toggle",
-      "cmd-:": "workspace::NewTerminal",
+      "cmd-:": "terminal_panel::Toggle",
+      "cmd-shift-;": "terminal_panel::Toggle",
+      "cmd-shift-t": "terminal_panel::Toggle",
+      "cmd-shift-x": ["action::Sequence", ["workspace::ZoomOut", "workspace::ActivatePaneUp"]],
       "ctrl-shift-k": "terminal_panel::Toggle",
       "cmd-shift-k": "terminal_panel::Toggle",
       "ctrl-shift-h": "git_panel::Toggle",
@@ -52,22 +62,30 @@
       "ctrl-shift-g": "git_panel::Toggle",
       "cmd-shift-g": [
         "task::Spawn",
-        { "task_name": "lazygit", "reveal_target": "dock" },
+        { "task_name": "lazygit", "reveal_target": "dock" }
       ],
-      "cmd-shift-o": ["task::Spawn", { "task_name": "OpenCode", "reveal_target": "dock" }],
+      "cmd-shift-o": [
+        "task::Spawn",
+        { "task_name": "OpenCode", "reveal_target": "dock" }
+      ],
+      "ctrl-shift-t": "workspace::NewTerminal",
       "cmd-shift-ø": "workspace::NewTerminal",
       "ctrl-alt-left": "editor::MoveToBeginningOfLine",
       "ctrl-alt-right": "editor::MoveToEndOfLine",
       "ctrl-shift-i": "agent::Toggle",
-      "cmd-shift-i": "agent::Toggle",
-    },
+      "cmd-shift-i": "agent::Toggle"
+    }
   },
   {
     "context": "Editor && mode == full",
     "bindings": {
-      "cmd-shift-o": ["task::Spawn", { "task_name": "OpenCode", "reveal_target": "dock" }],
-      "cmd-shift-ø": "workspace::NewTerminal",
-    },
+      "cmd-shift-o": [
+        "task::Spawn",
+        { "task_name": "OpenCode", "reveal_target": "dock" }
+      ],
+      "ctrl-shift-t": "workspace::NewTerminal",
+      "cmd-shift-ø": "workspace::NewTerminal"
+    }
   },
   {
     "context": "Pane",
@@ -80,15 +98,28 @@
       "cmd-alt-d": ["pane::CloseActiveItem", { "close_pinned": false }],
       "ctrl-shift-1": ["pane::CloseOtherItems", { "close_pinned": false }],
       "cmd-shift-1": ["pane::CloseOtherItems", { "close_pinned": false }],
-      "cmd-shift-o": ["task::Spawn", { "task_name": "OpenCode", "reveal_target": "dock" }],
-      "cmd-shift-ø": "workspace::NewTerminal",
-    },
+      "cmd-shift-x": ["action::Sequence", ["workspace::ZoomOut", "workspace::ActivatePaneUp"]],
+      "cmd-shift-o": [
+        "task::Spawn",
+        { "task_name": "OpenCode", "reveal_target": "dock" }
+      ],
+      "ctrl-shift-t": "workspace::NewTerminal",
+      "cmd-shift-ø": "workspace::NewTerminal"
+    }
   },
   {
     "context": "Terminal",
     "bindings": {
       "cmd-0": ["pane::CloseActiveItem", { "close_pinned": false }],
-      "cmd-shift-o": ["task::Spawn", { "task_name": "OpenCode", "reveal_target": "dock" }],
+      "cmd-shift-;": "terminal_panel::Toggle",
+      "cmd-shift-t": "terminal_panel::Toggle",
+      "cmd-shift-left": "pane::ActivatePreviousItem",
+      "cmd-shift-right": "pane::ActivateNextItem",
+      "cmd-shift-o": [
+        "task::Spawn",
+        { "task_name": "OpenCode", "reveal_target": "dock" }
+      ],
+      "ctrl-shift-t": "workspace::NewTerminal",
       "cmd-shift-ø": "workspace::NewTerminal",
       "cmd-j": "workspace::ActivatePaneDown",
       "cmd-k": "workspace::ActivatePaneUp",
@@ -98,8 +129,9 @@
       "ctrl-shift-n": "workspace::NewTerminal",
       "cmd-shift-n": "workspace::NewTerminal",
       "ctrl-shift-m": "workspace::ToggleZoom",
-      "cmd-shift-m": "workspace::ToggleZoom",
-    },
+      "cmd-shift-x": ["action::Sequence", ["workspace::ZoomOut", "workspace::ActivatePaneUp"]],
+      "cmd-shift-m": "workspace::ToggleZoom"
+    }
   },
   {
     "context": "ProjectPanel && not_editing",
@@ -107,21 +139,29 @@
       "n": "project_panel::NewFile",
       "r": "project_panel::Rename",
       "shift-n": "project_panel::NewDirectory",
-      "d": ["project_panel::Trash", { "skip_prompt": false }],
-    },
+      "d": ["project_panel::Trash", { "skip_prompt": false }]
+    }
   },
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-shift-o": ["task::Spawn", { "task_name": "OpenCode", "reveal_target": "dock" }],
-      "cmd-shift-ø": "workspace::NewTerminal",
-    },
+      "cmd-shift-o": [
+        "task::Spawn",
+        { "task_name": "OpenCode", "reveal_target": "dock" }
+      ],
+      "ctrl-shift-t": "workspace::NewTerminal",
+      "cmd-shift-ø": "workspace::NewTerminal"
+    }
   },
   {
     "context": "Terminal",
     "bindings": {
-      "cmd-shift-o": ["task::Spawn", { "task_name": "OpenCode", "reveal_target": "dock" }],
-      "cmd-shift-ø": "workspace::NewTerminal",
-    },
-  },
+      "cmd-shift-o": [
+        "task::Spawn",
+        { "task_name": "OpenCode", "reveal_target": "dock" }
+      ],
+      "ctrl-shift-t": "workspace::NewTerminal",
+      "cmd-shift-ø": "workspace::NewTerminal"
+    }
+  }
 ]

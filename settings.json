@@ -7,105 +7,168 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "lsp": {
+    "oxfmt": {
+      "initialization_options": {
+        "settings": {
+          "fmt.configPath": "/Users/mc/.config/oxfmt/.oxfmtrc.json",
+        },
+      },
+    },
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    }
+  },
   "git_panel": {
     "tree_view": true,
     "dock": "left",
-    "button": false
+    "button": false,
   },
   "title_bar": {
     "show_menus": false,
     "show_onboarding_banner": false,
     "show_sign_in": false,
-    "show_user_menu": false
+    "show_user_menu": false,
   },
   "terminal": {
     "font_family": "MesloLGS NF",
     "show_count_badge": false,
-    "button": false
+    "button": false,
   },
   "diagnostics": {
-    "button": false
+    "button": false,
   },
   "search": {
-    "button": false
+    "button": false,
   },
   "debugger": {
-    "button": false
+    "button": false,
   },
   "agent": {
     "dock": "right",
     "tool_permissions": {
       "tools": {
-        "terminal": {
+        "skill": {
           "default": "allow"
-        }
-      }
+        },
+        "edit_file": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^plexus/\\.zed/"
+            },
+            {
+              "pattern": "^kalorisaurus/\\.zed/"
+            }
+          ]
+        },
+        "fetch": {
+          "always_allow": [
+            {
+              "pattern": "^https?://zed\\.dev"
+            },
+            {
+              "pattern": "^https?://raw\\.githubusercontent\\.com"
+            },
+            {
+              "pattern": "^https?://github\\.com"
+            },
+            {
+              "pattern": "^https?://api\\.github\\.com"
+            }
+          ],
+        },
+        "terminal": {
+          "default": "allow",
+        },
+      },
     },
     "sandbox_permissions": {
       "write_paths": [
         {
           "requested": "/Users/mc/.config/zed",
           "resolved": "/Users/mc/.config/zed"
+        },
+        {
+          "requested": "/Users/mc/.config/oxfmt",
+          "resolved": "/Users/mc/.config/oxfmt"
         }
       ],
       "network_hosts": [
         "zed.dev",
         "raw.githubusercontent.com",
-        "api.github.com"
-      ]
+        "api.github.com",
+        "github.com"
+      ],
     },
     "default_model": {
+      "effort": "medium",
       "provider": "copilot_chat",
-      "model": "gpt-6-luna",
+      "model": "claude-opus-5.5",
       "enable_thinking": true,
-      "effort": "medium"
     },
     "threads_sidebar": {
-      "position": "right"
+      "position": "right",
     },
     "favorite_models": [
       {
         "provider": "copilot_chat",
         "model": "claude-opus-5.5",
         "enable_thinking": true,
-        "effort": "high"
+        "effort": "medium"
       },
       {
         "provider": "copilot_chat",
         "model": "gpt-6-luna",
-        "enable_thinking": true,
+        "enable_thinking": false,
         "effort": "medium"
       }
     ],
-    "model_parameters": []
+    "model_parameters": [],
   },
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
-    "anthropic_retention": false
+    "anthropic_retention": false,
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "project_panel": {
     "git_status_indicator": false,
     "default_width": 239.0,
     "dock": "left",
-    "git_status": false
+    "git_status": false,
   },
   "outline_panel": {
-    "git_status": false
+    "git_status": false,
   },
   "tabs": {
-    "git_status": false
+    "git_status": false,
   },
   "sticky_scroll": {
-    "enabled": true
+    "enabled": true,
   },
   "scroll_sensitivity": 2.0,
   "minimap": {
-    "show": "never"
+    "show": "never",
   },
   "selection_highlight": false,
   "auto_indent_on_paste": false,
@@ -113,20 +176,35 @@
   "line_ending": "prefer_lf",
   "format_on_save": "on",
   "indent_guides": {
-    "enabled": false
+    "enabled": false,
   },
   "tab_size": 2,
+  "languages": {
+    "TypeScript": {
+      "prettier": {
+        "allowed": false,
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt",
+          },
+        },
+      ],
+    },
+  },
   "agent_servers": {
     "github-copilot-cli": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "base_keymap": "VSCode",
   "ui_font_size": 16,
   "buffer_font_size": 15,
+  "buffer_font_family": "Menlo",
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark",
+    "dark": "Catppuccin Macchiato",
   },
 }
